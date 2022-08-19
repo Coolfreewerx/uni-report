@@ -63,12 +63,12 @@ class PostController extends Controller
         $request->image->move(public_path('images'), $newImageName);
 
         $post = new Post();
+        $post->image_path = $newImageName;
         $post->title = $request->input('title');
         $post->description = $request->input('description');
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
         $post->agency = $request->input('agency');
-        $post->image_path = $newImageName;
         $post->save();
 
         $tags = $request->get('tags');
@@ -130,12 +130,12 @@ class PostController extends Controller
         $request->image->move(public_path('images'), $newImageName);
 
         $post = new Post();
+        $post->image_path = $newImageName;
         $post->title = $request->input('title');
         $post->description = $request->input('description');
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
         $post->agency = $request->input('agency');
-        $post->image_path = $newImageName;
         $post->save();
 
         $tags = $request->get('tags');

@@ -32,15 +32,15 @@ Route::resource('/posts', \App\Http\Controllers\PostController::class);
 
 Route::resource('/tags', \App\Http\Controllers\TagController::class);
 
-// //For adding an image
+// For adding an image
 // Route::get('/add-image',[ImageUploadController::class,'addImage'])->name('images.add');
 
-// //For storing an image
+// For storing an image
 // Route::post('/store-image',[ImageUploadController::class,'storeImage'])
 // ->name('images.store');
 
-// //For showing an image
+// For showing an image
 // Route::get('/view-image',[ImageUploadController::class,'viewImage'])->name('images.view');
 
-
 Route::get('/role', [CategoryController::class, 'index']);
+

@@ -1335,6 +1335,9 @@ input:checked + .toggle-bg {
 .ml-2 {
   margin-left: 0.5rem;
 }
+.mt-16 {
+  margin-top: 4rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -1346,9 +1349,6 @@ input:checked + .toggle-bg {
 }
 .-mr-2 {
   margin-right: -0.5rem;
-}
-.mt-16 {
-  margin-top: 4rem;
 }
 .block {
   display: block;
@@ -1383,9 +1383,6 @@ input:checked + .toggle-bg {
 .h-6 {
   height: 1.5rem;
 }
-.h-full {
-  height: 100%;
-}
 .h-8 {
   height: 2rem;
 }
@@ -1419,9 +1416,6 @@ input:checked + .toggle-bg {
 .w-4 {
   width: 1rem;
 }
-.w-1\/2 {
-  width: 50%;
-}
 .w-8 {
   width: 2rem;
 }
@@ -1433,6 +1427,9 @@ input:checked + .toggle-bg {
 }
 .w-64 {
   width: 16rem;
+}
+.w-1\/2 {
+  width: 50%;
 }
 .max-w-xl {
   max-width: 36rem;

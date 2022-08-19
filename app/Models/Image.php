@@ -13,8 +13,8 @@ class Image extends Model
     {
         Schema::create('postimages', function (Blueprint $table) {
             $table->string('image_path')->nullable();
-            $table->integer('created_by')->nullable();
-            $table->integer('updated_by')->nullable();
+            // $table->integer('created_by')->nullable();
+            // $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

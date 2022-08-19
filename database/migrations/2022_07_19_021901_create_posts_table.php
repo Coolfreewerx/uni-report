@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('image_path')->nullable();
             $table->string('title');
             $table->text('description');
+            $table->text('place');
+            $table->text('agency');
             $table->bigInteger('view_count')->default(0);
             $table->bigInteger('like_count')->default(0);
             $table->timestamps();

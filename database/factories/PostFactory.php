@@ -19,8 +19,11 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
+            'image_path' => $this->faker->imageUrl(640, 480),
             'title' => fake()->realText(30),
             'description' => fake()->realText(200),
+            'place' => fake()->realText(200),
+            'agency' => fake()->realText(200),
             'view_count' => fake()->numberBetween(0, 200000),
             'like_count' => fake()->numberBetween(0, 50000)
         ];

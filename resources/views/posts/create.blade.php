@@ -67,19 +67,26 @@
                 <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     Place 
                 </label>
-                <input type="text" name="tags" id="tags"
+                <input type="text" name="place" id="place"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       value="{{ old('tags') }}"
+                       value="{{ old('place') }}"
                        placeholder="" autocomplete="off">
             </div>
+
+            <select name="role" class="form-control custom-select">
+                    <option value="">Select Role</option
+                    @foreach($roles as $role)
+                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif>{{ $role->name }}</option>
+                    @endforeach
+            </select>
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="agency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     Agency
                 </label>
-                <input type="text" name="tags" id="tags"
+                <input type="text" name="agency" id="agency"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       value="{{ old('tags') }}"
+                       value="{{ old('agency') }}"
                        placeholder="" autocomplete="off">
             </div>
 

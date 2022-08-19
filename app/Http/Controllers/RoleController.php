@@ -17,6 +17,12 @@ class RoleController extends Controller
 
     }
 
+    public function index()
+    {
+        $roles = Role::all();
+        return view('roles.index', ['roles' => $roles]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

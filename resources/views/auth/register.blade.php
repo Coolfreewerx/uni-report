@@ -1,3 +1,8 @@
+<?php
+    use App\models\Role;
+    $roles = Role::all();
+?>
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -17,6 +22,24 @@
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            </div>
+
+            <div>
+                <x-label for="role" :value="__('Role')" />
+                <!--<x-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />-->
+                <select name="role" class="form-control custom-select">
+                    <option value="">Select Role</option>
+                    @foreach($roles as $role)
+                    @if($role->name != 'admin')
+                        <option value="{{ $role->name }}"
+
+                        @if(old('role') == $role->id) 
+                            selected 
+                        @endif>{{ $role->name }}</option>
+
+                    @endif
+                    @endforeach
+                </select>
             </div>
 
             <!-- Email Address -->
