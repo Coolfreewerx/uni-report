@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Sector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;

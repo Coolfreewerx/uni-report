@@ -2,6 +2,7 @@
 
 @section('content')
     <section class="mx-8">
+        <br><br><br><br>
         <h1 class="text-3xl mb-6">
             Edit post
         </h1>

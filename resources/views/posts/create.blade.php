@@ -2,8 +2,9 @@
 
 @section('content')
     <section class="mx-8">
+        <br><br><br><br>
         <h1 class="text-3xl mb-6">
-            Appeal & Track Problem 
+            ร้องเรียนและติดตามปัญหาของนิสิต 
         </h1>
 
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
@@ -76,7 +77,7 @@
             <select name="role" class="form-control custom-select">
                     <option value="">Select Role</option
                     @foreach($roles as $role)
-                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif>{{ $role->name }}</option>
+                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif >{{ $role->name }}</option>
                     @endforeach
             </select>
 

@@ -10,6 +10,11 @@ class Post extends Model
 {
     use HasFactory; // trait
 
+    public function sectors()
+    {
+        return $this->belongsToMany(Sector::class);
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);

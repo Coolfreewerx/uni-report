@@ -3,6 +3,7 @@
 
 @section('content')
     <article class="mx-8">
+        <br><br><br><br>
         <h1 class="text-3xl mb-1">
             {{ $post->title }}
         </h1>
@@ -32,6 +33,15 @@
                 <a class="bg-pink-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2"
                     href="{{ route('tags.show', ['tag' => $tag->name]) }}">
                     {{ $tag->name }}
+                </a>
+            @endforeach
+        </div>
+
+        <div class="my-4">
+            @foreach($post->sectors as $sector)
+                <a class="bg-pink-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2"
+                    href="{{ route('sectors.show', ['sector' => $sector->name]) }}">
+                    {{ $sector->name }}
                 </a>
             @endforeach
         </div>
