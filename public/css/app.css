@@ -1261,14 +1261,6 @@ input:checked + .toggle-bg {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1276,6 +1268,14 @@ input:checked + .toggle-bg {
 .mx-16 {
   margin-left: 4rem;
   margin-right: 4rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -1315,17 +1315,14 @@ input:checked + .toggle-bg {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mt-6 {
-  margin-top: 1.5rem;
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
 }
 .mr-1 {
   margin-right: 0.25rem;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
 }
 .mb-8 {
   margin-bottom: 2rem;
@@ -1336,11 +1333,17 @@ input:checked + .toggle-bg {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .mr-3 {
   margin-right: 0.75rem;
 }
 .ml-2 {
   margin-left: 0.5rem;
+}
+.mt-16 {
+  margin-top: 4rem;
 }
 .ml-1 {
   margin-left: 0.25rem;
@@ -1353,9 +1356,6 @@ input:checked + .toggle-bg {
 }
 .-mr-2 {
   margin-right: -0.5rem;
-}
-.mt-16 {
-  margin-top: 4rem;
 }
 .block {
   display: block;
@@ -1684,13 +1684,13 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.bg-orange-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 236 220 / var(--tw-bg-opacity));
-}
 .bg-emerald-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(110 231 183 / var(--tw-bg-opacity));
+}
+.bg-orange-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 236 220 / var(--tw-bg-opacity));
 }
 .bg-green-100 {
   --tw-bg-opacity: 1;
@@ -1768,10 +1768,6 @@ input:checked + .toggle-bg {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
 .px-2\.5 {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
@@ -1787,6 +1783,10 @@ input:checked + .toggle-bg {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .py-2\.5 {
   padding-top: 0.625rem;
@@ -1861,10 +1861,6 @@ input:checked + .toggle-bg {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1872,6 +1868,10 @@ input:checked + .toggle-bg {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -1884,11 +1884,11 @@ input:checked + .toggle-bg {
 .font-medium {
   font-weight: 500;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-normal {
   font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
 }
 .font-semibold {
   font-weight: 600;

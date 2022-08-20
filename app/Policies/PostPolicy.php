@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->isAdmin() or $user->isEditor() or $user->isUser();
+        return $user->isAdmin() or $user->isEditor() or $user->isUser() or $user->isEmployee() or $user->isTeacher();
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->isAdmin() or $user->isEditor() or
+        return $user->isAdmin() or $user->isEditor() or $user->isUser() or $user->isEmployee() or $user->isTeacher()
             ($user->isUser() and $user->id === $post->user_id);
     }
 

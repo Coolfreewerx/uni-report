@@ -1,3 +1,8 @@
+<?php
+    use App\models\Role;
+    $roles = Role::all();
+?>
+
 @extends('layouts.main')
 
 @section('content')
@@ -74,12 +79,16 @@
                        placeholder="" autocomplete="off">
             </div>
 
-            <select name="role" class="form-control custom-select">
+            <div>
+                <x-label for="role" :value="__('Role')" />
+                <!--<x-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />-->
+                <select name="role" class="form-control custom-select">
                     <option value="">Select Role</option
                     @foreach($roles as $role)
-                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif >{{ $role->name }}</option>
+                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif>{{ $role->name }}</option>
                     @endforeach
-            </select>
+                </select>
+            </div>
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="agency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
