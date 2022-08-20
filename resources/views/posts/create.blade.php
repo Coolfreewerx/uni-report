@@ -1,6 +1,6 @@
 <?php
-    use App\models\Role;
-    $roles = Role::all();
+    use App\models\Sector;
+    $sectors = Sector::all();
 ?>
 
 @extends('layouts.main')
@@ -28,7 +28,7 @@
 
 
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Report Problem
+                    ปัญหาที่ต้องการแจ้ง
                 </label>
 
                 @if ($errors->has('title'))
@@ -45,7 +45,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Tags 
+                    หมวดหมู่ปัญหา 
                 </label>
                 <input type="text" name="tags" id="tags"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -56,7 +56,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                    Description
+                    คำอธิบายปัญหา
                 </label>
 
                 @if($errors->has('description'))
@@ -71,7 +71,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Place 
+                    สถานที่ที่พบเจอปัญหา
                 </label>
                 <input type="text" name="place" id="place"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -80,28 +80,30 @@
             </div>
 
             <div>
-                <x-label for="role" :value="__('Role')" />
-                <!--<x-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />-->
-                <select name="role" class="form-control custom-select">
-                    <option value="">Select Role</option
-                    @foreach($roles as $role)
-                        <option value="{{ $role->id }}" @if(old('role') == $role->id ) selected @endif>{{ $role->name }}</option>
+                <x-label for="sector" :value="__('Sector')" />
+                <x-input id="sector" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />
+                <select name="Sector" class="form-control custom-select">
+                    <option value="">เลือกหน่วยงานที่ต้องการแจ้ง</option
+                    @foreach($sectors as $sector)
+                        <option value="{{ $sector->id }}"</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="relative z-0 mb-6 w-full group">
-                <label for="agency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Agency
-                </label>
-                <input type="text" name="agency" id="agency"
-                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       value="{{ old('agency') }}"
-                       placeholder="" autocomplete="off">
-            </div>
+            <!-- <div class="relative z-0 mb-6 w-full group"> -->
+                <!-- <label for="agency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"> -->
+                    <!-- หน่วยงานที่ต้องการแจ้ง -->
+                <!-- </label> -->
+                <!-- <input type="text" name="agency" id="agency" -->
+                       <!-- class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" -->
+                       <!-- value="{{ old('agency') }}" -->
+                       <!-- placeholder="" autocomplete="off"> -->
+            <!-- </div> -->
+
+
 
             <div>
-                <button class="app-button" type="submit">Create</button>
+                <button class="app-button" type="submit">แจ้งปัญหา</button>
             </div>
 
         </form>
