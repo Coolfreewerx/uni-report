@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app-button {
-    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+    @apply text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
 }
 
 .app-button.red {
@@ -14,5 +14,11 @@
     @apply text-white bg-blue-500 md:bg-transparent md:text-blue-500;
 }
 
+.app-box {
+    @apply block p-6 w-full md:w-auto bg-white rounded-lg border border-green-200 shadow-md hover:bg-green-100
+}
 
+.app-box-full {
+    @apply block p-6 w-1/2 bg-white rounded-lg border border-green-200 shadow-md hover:bg-green-100
+}
 

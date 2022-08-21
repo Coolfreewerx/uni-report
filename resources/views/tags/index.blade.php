@@ -9,7 +9,7 @@
         <div class="my-1 px-8 py-2 flex flex-wrap justify-between space-y-6">
             @foreach($tags as $tag)
                 <a href="{{ route('tags.show', ['tag' => $tag->name]) }}"
-                   class="block p-6 w-full md:w-auto bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 ">
+                   class="app-box">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                         {{ $tag->name }}
                     </h5>

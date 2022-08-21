@@ -16,6 +16,6 @@ class Sector extends Model
 
     public function note()
     {
-        return $this->hasOne(Note::class , 'note_id');
+        return $this->hasOne(Note::class);
     }
 }

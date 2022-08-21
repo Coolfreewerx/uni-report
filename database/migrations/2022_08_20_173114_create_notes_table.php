@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Sector::class);
             $table->text('description');
             $table->timestamps();
         });

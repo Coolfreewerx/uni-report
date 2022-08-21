@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Post;
 use App\Models\Sector;
+use App\Models\Note;
 
 class SectorSeeder extends Seeder
 {
@@ -16,7 +17,33 @@ class SectorSeeder extends Seeder
      */
     public function run()
     {
-        $sector = Sector::first();
+        $this->command->line("sector to note");
+        $sector = new Sector();
+        $sector->note_id = 1;
+        $sector->name = "สำนักงานมหาวิทยาลัย";
+        $sector->save();
+
+        $sector = new Sector();
+        $sector->note_id = 2;
+        $sector->name = "สำนักบริหารการศึกษา";
+        $sector->save();
+
+        $sector = new Sector();
+        $sector->note_id = 3;
+        $sector->name = "สำนักส่งเสริมและฝึกอบรม";
+        $sector->save();
+
+        $sector = new Sector();
+        $sector->note_id = 4;
+        $sector->name = "สำนักบริการคอมพิวเตอร์";
+        $sector->save();
+
+        $sector = new Sector();
+        $sector->note_id = 5;
+        $sector->name = "สำนักหอสมุด";
+        $sector->save();
+
+        /*$sector = Sector::first();
         if (!$sector) {
             $this->command->line("Generating Sectors");
             $sectors = ['สำนักงานมหาวิทยาลัย','สำนักบริหารการศึกษา','สำนักส่งเสริมและฝึกอบรม','สำนักบริการคอมพิวเตอร์','สำนักหอสมุด'];
@@ -25,7 +52,7 @@ class SectorSeeder extends Seeder
                 $sector->name = $sector_name;
                 $sector->save();
             });
-        }
+        }*/
 
         $this->command->line("Generating Sectors for all posts");
         $posts = Post::get();

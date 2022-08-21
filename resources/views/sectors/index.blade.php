@@ -5,11 +5,15 @@
     <br><br><br><br>
         <h1 class="text-3xl mx-4 mt-6">
             หน่วยงานทั้งหมด
+            <a class="app-button " href="{{ route('notes.index') }}">
+                Details >>
+            </a>
         </h1>
+        <br>
         <div class="my-1 px-8 py-2 flex flex-wrap justify-between space-y-6">
             @foreach($sectors as $sector)
                 <a href="{{ route('sectors.show', ['sector' => $sector->name]) }}"
-                   class="block p-6 w-full md:w-auto bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                   class="app-box">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                         {{ $sector->name }} 
                     </h5>

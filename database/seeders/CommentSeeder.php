@@ -24,9 +24,9 @@ class CommentSeeder extends Seeder
             ]);
         });
 
-        $this->command->line("Generating random 500 comments");
+        $this->command->line("Generating random 50 comments");
         $post_ids = Post::select(['id'])->get();
-        Comment::factory(500)->create([
+        Comment::factory(50)->create([
             'post_id' => $post_ids->random()->id
         ]);
     }
