@@ -9,7 +9,7 @@
     <section class="mx-8">
         <br><br><br><br>
         <h1 class="text-3xl mb-6">
-            ร้องเรียนและติดตามปัญหาของนิสิต
+            ร้องเรียนและติดตามปัญหาของนิสิต 
         </h1>
 
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
@@ -20,13 +20,13 @@
                     Add Image
                 </label>
 
-                <input
-                    type="file"
-                    class="form-control"
+                <input 
+                    type="file" 
+                    class="form-control" 
                     name="image">
+            </div>
 
-
-
+            <div>
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     ปัญหาที่ต้องการแจ้ง
                 </label>
@@ -43,9 +43,10 @@
                        placeholder="" required>
             </div>
 
+
             <div class="relative z-0 mb-6 w-full group">
                 <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    หมวดหมู่ปัญหา
+                    Tags
                 </label>
                 <input type="text" name="tags" id="tags"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -79,31 +80,26 @@
                        placeholder="" autocomplete="off">
             </div>
 
+
             <div>
-                <x-label for="sector" :value="__('Sector')" />
-                <x-input id="sector" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />
-                <select name="Sector" class="form-control custom-select">
-                    <option value="">เลือกหน่วยงานที่ต้องการแจ้ง</option
+                <x-label for="sector" :value="__('หน่วยงานที่ต้องการแจ้ง')" />
+                <select name="sector" id="sector" class="form-control">
                     @foreach($sectors as $sector)
-                        <option value="{{ $sector->id }}"</option>
+                        
+                    <option value="{{ $sector->name }}"
+
+                        @if(old('sector') == $sector->id) 
+                            selected 
+                        @endif>{{ $sector->name }}</option>
                     @endforeach
                 </select>
-            </div>
 
-            <!-- <div class="relative z-0 mb-6 w-full group"> -->
-                <!-- <label for="agency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"> -->
-                    <!-- หน่วยงานที่ต้องการแจ้ง -->
-                <!-- </label> -->
-                <!-- <input type="text" name="agency" id="agency" -->
-                       <!-- class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" -->
-                       <!-- value="{{ old('agency') }}" -->
-                       <!-- placeholder="" autocomplete="off"> -->
-            <!-- </div> -->
-
-
+            <div class="mx-3 my-4">
+                <input type = "checkbox" name="status">
+                <label for="status"> โหมดไม่ระบุตัวตน </label>
 
             <div>
-                <button class="app-button" type="submit">แจ้งปัญหา</button>
+                <button class="app-button my-10" type="submit">แจ้งปัญหา</button>
             </div>
 
         </form>

@@ -19,27 +19,22 @@ class SectorSeeder extends Seeder
     {
         $this->command->line("sector to note");
         $sector = new Sector();
-        $sector->note_id = 1;
         $sector->name = "สำนักงานมหาวิทยาลัย";
         $sector->save();
 
         $sector = new Sector();
-        $sector->note_id = 2;
         $sector->name = "สำนักบริหารการศึกษา";
         $sector->save();
 
         $sector = new Sector();
-        $sector->note_id = 3;
         $sector->name = "สำนักส่งเสริมและฝึกอบรม";
         $sector->save();
 
         $sector = new Sector();
-        $sector->note_id = 4;
         $sector->name = "สำนักบริการคอมพิวเตอร์";
         $sector->save();
 
         $sector = new Sector();
-        $sector->note_id = 5;
         $sector->name = "สำนักหอสมุด";
         $sector->save();
 

@@ -19,6 +19,6 @@
 }
 
 .app-box-full {
-    @apply block p-6 w-1/2 bg-white rounded-lg border border-green-200 shadow-md hover:bg-green-100
+    @apply block p-6 w-full mx-10 bg-white rounded-lg border border-green-200 shadow-md hover:bg-green-100
 }
 

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,16 +36,4 @@ Route::resource('/sectors', \App\Http\Controllers\SectorController::class);
 Route::resource('/notes', \App\Http\Controllers\NoteController::class);
 
 Route::resource('/charts', \App\Http\Controllers\ChartController::class);
-
-// For adding an image
-// Route::get('/add-image',[ImageUploadController::class,'addImage'])->name('images.add');
-
-// For storing an image
-// Route::post('/store-image',[ImageUploadController::class,'storeImage'])
-// ->name('images.store');
-
-// For showing an image
-// Route::get('/view-image',[ImageUploadController::class,'viewImage'])->name('images.view');
-
-Route::get('/role', [CategoryController::class, 'index']);
 

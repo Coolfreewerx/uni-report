@@ -1,3 +1,8 @@
+<?php
+    use App\models\Sector;
+    $sectors = Sector::all();
+?>
+
 @extends('layouts.main')
 
 @section('content')
@@ -23,7 +28,7 @@
                         </svg>
                         {{ $sector->posts->count() }} posts
                     </p>
-                </a>
+                </a> 
             @endforeach
         </div>
     </section>

@@ -57,7 +57,7 @@ class PostController extends Controller
             'title' => ['required', 'max:255', 'min:5'],
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
-            'agency' => ['required', 'max:1000'],
+            'sector' => ['required', 'max:1000']
         ]);
 
         $newImageName = time() . '.' . $request->image->extension();
@@ -69,12 +69,17 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
-        $post->agency = $request->input('agency');
         $post->save();
 
+
         $tags = $request->get('tags');
+        $sectors = $request->get('sectors');
+
         $tag_ids = $this->syncTags($tags);
+        // $sector_ids = $this->syncSectors($sectors);
+
         $post->tags()->sync($tag_ids);
+        $post->sectors()->sync((int)$sectors);
 
         return redirect()->route('posts.show', ['post' => $post->id]);
         //                     -------------------------^
@@ -124,7 +129,7 @@ class PostController extends Controller
             'title' => ['required', 'max:255', 'min:5'],
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
-            'agency' => ['required', 'max:1000']
+            'sector' => ['required', 'max:1000']
         ]);
 
         $newImageName = time() . '.' . $request->image->extension();
@@ -136,12 +141,17 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
-        $post->agency = $request->input('agency');
+        $post->sector = $request->input('sector');
         $post->save();
 
         $tags = $request->get('tags');
+        $sectors = $request->get('sectors');
+
         $tag_ids = $this->syncTags($tags);
+        // $sector_ids = $this->syncSectors($sectors);
+
         $post->tags()->sync($tag_ids);
+        $post->sectors()->sync($sectors);
 
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
@@ -166,6 +176,22 @@ class PostController extends Controller
         }
         return $tag_ids;
     }
+
+    // private function syncSectors($sectors)
+    // {
+    //     $sectors = explode(',', $sectors);
+    //     $sectors = array_map(function($v) {
+    //         // use Illuminate\Support\Str; ก่อน class
+    //         return Str::ucfirst(trim($v));
+    //     }, $sectors);
+
+    //     $sector_ids = [];
+    //     foreach($sectors as $sector_name) {
+    //         $sector = Sector::where('name', $sector_name)->first();
+            
+    //     }
+    //     return $sector_ids;
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -192,5 +218,4 @@ class PostController extends Controller
         $post->comments()->save($comment);
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
-
 }

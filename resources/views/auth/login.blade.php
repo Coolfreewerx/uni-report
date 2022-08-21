@@ -14,12 +14,12 @@
     </style>
 
     <div>
-        <img class="hidden-middle " style="float: left" src="image/login_sideBG.png">
+        <img class="hidden-middle " style="float: left" src="images/login_sideBG2.png">
         <x-auth-card>
             <x-slot name="logo">
             </x-slot>
             <div class="flex items-center justify-center">
-                <img src="image/soccaass_logo_white.png">
+                <img src="images/soccaass_logo_black.png" alt="soccaass_logo" width="200" height="200">
             </div>
 
         <!-- Session Status -->

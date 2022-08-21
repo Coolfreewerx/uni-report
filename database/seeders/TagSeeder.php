@@ -30,12 +30,12 @@ class TagSeeder extends Seeder
             });
         }
 
-        $this->command->line("Generating tags for all posts");
-        $posts = Post::get();
-        $posts->each(function($post, $key) { // link tags to posts
-            $n = fake()->numberBetween(1, 5);
-            $tag_ids = Tag::inRandomOrder()->limit($n)->get()->pluck(['id'])->all();
-            $post->tags()->sync($tag_ids);
-        });
+        // $this->command->line("Generating tags for all posts");
+        // $posts = Post::get();
+        // $posts->each(function($post, $key) { // link tags to posts
+        //     $n = fake()->numberBetween(1, 5);
+        //     $tag_ids = Tag::inRandomOrder()->limit($n)->get()->pluck(['id'])->all();
+        //     $post->tags()->sync($tag_ids);
+        // });
     }
 }

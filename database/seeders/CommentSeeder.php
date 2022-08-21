@@ -24,10 +24,10 @@ class CommentSeeder extends Seeder
             ]);
         });
 
-        $this->command->line("Generating random 50 comments");
-        $post_ids = Post::select(['id'])->get();
-        Comment::factory(50)->create([
-            'post_id' => $post_ids->random()->id
-        ]);
+        // $this->command->line("Generating random 50 comments");
+        // $post_ids = Post::select(['id'])->get();
+        // Comment::factory(50)->create([
+        //     'post_id' => $post_ids->random()->id
+        // ]);
     }
 }

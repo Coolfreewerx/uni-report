@@ -19,6 +19,5 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(SectorSeeder::class);
-        $this->call(NoteSeeder::class);
     }
 }
