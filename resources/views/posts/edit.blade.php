@@ -13,7 +13,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Report Problem
+                    ปัญหาที่ต้องการแจ้ง
                 </label>
                 @if ($errors->has('title'))
                     <p class="text-red-500">
@@ -38,7 +38,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                    Description
+                    คำอธิบายปัญหา
                 </label>
                 @if ($errors->has('description'))
                     <p class="text-red-500">
@@ -48,6 +48,20 @@
                 <textarea rows="4" type="text" name="description" id="description"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           required >{{ old('description', $post->description) }}</textarea>
+            </div>
+
+            <div class="relative z-0 mb-6 w-full group">
+                <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                    สถานที่ที่พบเจอปัญหา
+                </label>
+                @if ($errors->has('place'))
+                    <p class="text-red-500">
+                        {{ $errors->first('place') }}
+                    </p>
+                @endif
+                <textarea rows="4" type="text" name="place" id="place"
+                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          required >{{ old('place', $post->place) }}</textarea>
             </div>
 
             <div>

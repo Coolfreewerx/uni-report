@@ -125,33 +125,35 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $validated = $request->validate([
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => ['required', 'max:255', 'min:5'],
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
-            'sector' => ['required', 'max:1000']
+            // 'sector' => ['required', 'max:1000']
         ]);
 
-        $newImageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $newImageName);
+        // $newImageName = time() . '.' . $request->image->extension();
+        // $request->image->move(public_path('images'), $newImageName);
 
-        $post = new Post();
-        $post->image_path = $newImageName;
+        // $post = new Post();
+
+        // $post->image_path = $newImageName;
         $post->title = $request->input('title');
         $post->description = $request->input('description');
-        $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
-        $post->sector = $request->input('sector');
         $post->save();
+        // $post->user_id = $request->user()->id;
+        // $post->sector = $request->input('sector');
+        // $post->save();
 
         $tags = $request->get('tags');
-        $sectors = $request->get('sectors');
-
+        // $sectors = $request->get('sectors');
         $tag_ids = $this->syncTags($tags);
+        $post->tags()->sync($tag_ids);
         // $sector_ids = $this->syncSectors($sectors);
 
-        $post->tags()->sync($tag_ids);
-        $post->sectors()->sync($sectors);
+        // $post->tags()->sync($tag_ids);
+        // $post->sectors()->sync($sectors);
 
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
