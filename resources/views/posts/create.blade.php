@@ -9,7 +9,7 @@
     <section class="mx-8">
         <br><br><br><br>
         <h1 class="text-3xl mb-6">
-            ร้องเรียนและติดตามปัญหาของนิสิต 
+            ร้องเรียนและติดตามปัญหาของนิสิต
         </h1>
 
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
@@ -20,9 +20,9 @@
                     Add Image
                 </label>
 
-                <input 
-                    type="file" 
-                    class="form-control" 
+                <input
+                    type="file"
+                    class="form-control"
                     name="image">
 
 
@@ -45,7 +45,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    หมวดหมู่ปัญหา 
+                    หมวดหมู่ปัญหา
                 </label>
                 <input type="text" name="tags" id="tags"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

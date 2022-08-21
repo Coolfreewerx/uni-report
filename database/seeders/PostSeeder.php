@@ -14,9 +14,10 @@ class PostSeeder extends Seeder
      *
      * @return void
      */
-        public function run()
+
+     public function run()
      {
-    //     $this->command->line("Generating 500 posts");
-         Post::factory(50)->create();
+         $this->command->line("Generating 500 posts");
+         Post::factory(500)->create();
      }
 }
