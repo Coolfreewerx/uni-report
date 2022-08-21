@@ -36,6 +36,8 @@ Route::resource('/sectors', \App\Http\Controllers\SectorController::class);
 
 Route::resource('/notes', \App\Http\Controllers\NoteController::class);
 
+Route::resource('/charts', \App\Http\Controllers\ChartController::class);
+
 // For adding an image
 // Route::get('/add-image',[ImageUploadController::class,'addImage'])->name('images.add');
 

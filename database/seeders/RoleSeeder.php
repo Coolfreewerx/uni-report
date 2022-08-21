@@ -19,11 +19,12 @@ class RoleSeeder extends Seeder
         if (!$role) {
             $this->command->line("Generating Roles");
             $roles = ['admin', 'student', 'employee', 'teacher'];
-            
+
             collect($roles)->each(function ($role_name, $key) {
                 $role = new Role();
                 $role->name = $role_name;
                 $role->save();
-        });
+            });
+        }
     }
 }

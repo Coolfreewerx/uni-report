@@ -192,4 +192,5 @@ class PostController extends Controller
         $post->comments()->save($comment);
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
+
 }

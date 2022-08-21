@@ -30,8 +30,8 @@ class SectorSeeder extends Seeder
         $this->command->line("Generating Sectors for all posts");
         $posts = Post::get();
         $posts->each(function($post, $key) { // link Sectors to posts
-            $n = fake()->numberBetween(1, 5);
-            $sector_ids = Sector::inRandomOrder()->limit($n)->get()->pluck(['id'])->all();
+//            $n = fake()->numberBetween(1, 5);
+            $sector_ids = Sector::inRandomOrder()->limit(1)->get()->pluck(['id'])->all();
             $post->sectors()->sync($sector_ids);
         });
     }
