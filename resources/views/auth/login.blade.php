@@ -13,8 +13,8 @@
         }
     </style>
 
-    <div>
-        <img class="hidden-middle " style="float: left" src="images/login_sideBG2.png">
+    <div >
+        <img class="hidden-middle" style="float: left" src="images/login_sideBG2.png">
         <x-auth-card>
             <x-slot name="logo">
             </x-slot>

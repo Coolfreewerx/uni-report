@@ -5,11 +5,11 @@
 
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+            <x-slot name="logo">
+            </x-slot>
+        <div class="flex items-center justify-center">
+            <img src="images/soccaass_logo_black.png" alt="soccaass_logo" width="200" height="200">
+        </div>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -24,7 +24,7 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <x-label for="role" :value="__('Role')" />
                 <!--<x-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required />-->
                 <select name="role" class="form-control custom-select">
@@ -33,8 +33,8 @@
                     @if($role->name != 'admin')
                         <option value="{{ $role->name }}"
 
-                        @if(old('role') == $role->id) 
-                            selected 
+                        @if(old('role') == $role->id)
+                            selected
                         @endif>{{ $role->name }}</option>
 
                     @endif
@@ -74,7 +74,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="mt-4 ml-4">
                     {{ __('Register') }}
                 </x-button>
             </div>

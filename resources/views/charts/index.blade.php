@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 
 @section('content')
@@ -5,49 +6,41 @@
         <br><br><br><br>
         <h1 class="text-3xl mx-4 mt-6">
             สถิติการร้องเรียนทั้งหมด
+            <button class="app-button mx-4 mt-6 ml-3" onclick="handlePrintButton()">DOWNLOAD PDF >></button>
         </h1>
-
-{{--        <div class="row">--}}
-{{--            <div class="col-xl-6">--}}
-{{--                <div class="card mb-4">--}}
-{{--                    <div class="card-header">--}}
-{{--                        <i class="fas fa-chart-area me-1"></i>--}}
-{{--                        Area Chart Example--}}
-{{--                    </div>--}}
-{{--                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <div class="col-xl-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-chart-bar me-1"></i>
-                        Bar Chart Example
-                    </div>
-                    <div class="card-body"><canvas id="myBarChart" width="50%" height="20"></canvas></div>
-                </div>
-            </div>
+        <div class="flex flex-col mx-4 mt-6 md:flex justify-items-center" style="width: 70%; height: 70%">
+            <canvas id="myBarChart" class="justify-items-center"></canvas>
         </div>
-
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        var _ydata=JSON.parse('{!! json_encode($days) !!}');
-        var _xdata=JSON.parse('{!! json_encode($dayCount) !!}');
+        var _ydata=JSON.parse('{!! json_encode($tags_name) !!}');
+        var _xdata=JSON.parse('{!! json_encode($tagCount) !!}');
 
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#292b2c';
 
-        // Bar Chart Example
+        var chartColors = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(231,233,237)'
+        };
+
+        //Bar Chart Example
         var ctx = document.getElementById("myBarChart");
         var myLineChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: _ydata,
                 datasets: [{
-                    label: "Registration",
-                    backgroundColor: "rgba(2,117,216,1)",
-                    borderColor: "rgba(2,117,216,1)",
+                    label: "posts",
+                    backgroundColor: chartColors.green,
+                    borderColor: chartColors.green,
                     data: _xdata,
                 }],
             },
@@ -55,20 +48,18 @@
                 scales: {
                     xAxes: [{
                         time: {
-                            unit: 'month'
+                            unit: 'tags'
                         },
                         gridLines: {
                             display: false
                         },
                         ticks: {
-                            maxTicksLimit: 6
+                            beginAtZero: true
                         }
                     }],
                     yAxes: [{
                         ticks: {
-                            min: 0,
-                            max: 10,
-                            maxTicksLimit: 10
+                            beginAtZero: true
                         },
                         gridLines: {
                             display: true
@@ -80,6 +71,10 @@
                 }
             }
         });
+
+        function handlePrintButton(){
+            print();
+        }
 
     </script>
     <script src="{{asset('public')}}/assets/demo/chart-area-demo.js"></script>

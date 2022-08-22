@@ -18,34 +18,14 @@ class ChartController extends Controller
      */
     public function index()
     {
-//        $data = Post::select('id','created_at')
-//                ->get()->groupBy(function ($data){
-//                    return Carbon::parse($data->created_at)->format('M');
-//            });
-//
-//        $months = [];
-//        $monthCount = [];
-//
-//        foreach ($data as $month => $values){
-//            $months[] = $month;
-//            $monthCount = count($values);
-//        }
-        $data = Post::select('id','created_at')
-            ->get()->groupBy(function ($data){
-                return Carbon::parse($data->created_at)->format('Y');
-            });
-
-        $days = [];
-        $dayCount = [];
-
-        foreach ($data as $day => $values){
-            $days[] = $day;
-            $dayCount = count($values);
+        $tags = Tag::get();
+        $tags_name = [];
+        $tagCount = [];
+        foreach ($tags as $tag) {
+            $tags_name[] = $tag->name;
+            $tagCount[] = $tag->posts->count();
         }
-
-        return view('charts.index',['data'=>$data, 'days'=>$days, 'dayCount'=>$dayCount]);
-
-//        return view('charts.index',['data'=>$data, 'months'=>$months, 'monthCount'=>$monthCount]);
+        return view('charts.index',['tags_name'=>$tags_name,'tagCount' => $tagCount]);
     }
 
     /**
