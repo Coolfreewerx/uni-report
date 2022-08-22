@@ -57,7 +57,8 @@ class PostController extends Controller
             'title' => ['required', 'max:255', 'min:5'],
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
-            'sector' => ['required', 'max:1000']
+            'sector' => ['required', 'max:1000'],
+            // 'status' => ['required', 'max:1000'],
         ]);
 
         $newImageName = time() . '.' . $request->image->extension();
@@ -69,6 +70,7 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
+        $post->status = $request->boolean('status');
         $post->save();
 
 
@@ -76,7 +78,6 @@ class PostController extends Controller
         $sectors = $request->get('sectors');
 
         $tag_ids = $this->syncTags($tags);
-        // $sector_ids = $this->syncSectors($sectors);
 
         $post->tags()->sync($tag_ids);
         $post->sectors()->sync((int)$sectors);
@@ -142,18 +143,11 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->place = $request->input('place');
         $post->save();
-        // $post->user_id = $request->user()->id;
-        // $post->sector = $request->input('sector');
-        // $post->save();
 
         $tags = $request->get('tags');
-        // $sectors = $request->get('sectors');
         $tag_ids = $this->syncTags($tags);
         $post->tags()->sync($tag_ids);
-        // $sector_ids = $this->syncSectors($sectors);
 
-        // $post->tags()->sync($tag_ids);
-        // $post->sectors()->sync($sectors);
 
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
@@ -179,22 +173,6 @@ class PostController extends Controller
         return $tag_ids;
     }
 
-    // private function syncSectors($sectors)
-    // {
-    //     $sectors = explode(',', $sectors);
-    //     $sectors = array_map(function($v) {
-    //         // use Illuminate\Support\Str; ก่อน class
-    //         return Str::ucfirst(trim($v));
-    //     }, $sectors);
-
-    //     $sector_ids = [];
-    //     foreach($sectors as $sector_name) {
-    //         $sector = Sector::where('name', $sector_name)->first();
-            
-    //     }
-    //     return $sector_ids;
-    // }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -219,5 +197,13 @@ class PostController extends Controller
         $comment->message = $request->get('message');
         $post->comments()->save($comment);
         return redirect()->route('posts.show', ['post' => $post->id]);
+    }
+
+
+    // view your post
+    public function your_posts()
+    {
+        $posts = Post::where('user_id', Auth::user()->id)->get();
+        return view('posts.your_posts', ['posts' => $posts]);
     }
 }

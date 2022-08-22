@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('place');
             $table->bigInteger('view_count')->default(0);
             $table->bigInteger('like_count')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

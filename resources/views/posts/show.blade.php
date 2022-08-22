@@ -14,7 +14,15 @@
         </h1>
 
         <p>
-            By {{ $post->user->name }}
+            <a class="bg-blue-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2"
+                href="{{ route('your_posts') }}">
+
+                @if($post->status == 1)
+                    <span class="bg-pink-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">By Anonymous</span>
+                @else
+                    <span class="bg-pink-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">By {{ $post->user->name }}</span>
+                @endif    
+            </a>
         </p>
 
         <div class="mb-4"> 
@@ -54,11 +62,11 @@
 
         <!-- show place -->
         <p class="">
-            <label class="block mb-2 text-sm font- text-black dark:text-black-300">
+            <label class="block mb-2 text-sm font- text-black dark:text-black-700">
                     สถานที่ที่พบเจอปัญหา
             </label>
 
-            <label class="rounded-Ig bg-green-100 text-gray-900 font-normal p-2 mb-8 p-2.5">
+            <label class="rounded-Ig text-gray-900 font-normal p-2 mb-8 p-2.5">
                 {{ $post->place }}
             </label>     
         </p>

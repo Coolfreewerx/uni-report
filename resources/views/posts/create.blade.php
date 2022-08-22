@@ -98,6 +98,13 @@
                 <input type = "checkbox" name="status">
                 <label for="status"> โหมดไม่ระบุตัวตน </label>
 
+                @if($errors->has('status'))
+                    <p class="text-red-500">
+                        {{ $errors->first('status') }}
+                    </p>    
+                @endif
+            </div>
+
             <div>
                 <button class="app-button my-10" type="submit">แจ้งปัญหา</button>
             </div>

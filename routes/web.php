@@ -37,3 +37,4 @@ Route::resource('/notes', \App\Http\Controllers\NoteController::class);
 
 Route::resource('/charts', \App\Http\Controllers\ChartController::class);
 
+Route::get('your_posts', [\App\Http\Controllers\PostController::class, 'your_posts']) -> name('your_posts');
