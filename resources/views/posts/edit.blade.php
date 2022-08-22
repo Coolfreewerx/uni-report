@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label for="title" class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-300">
                     ปัญหาที่ต้องการแจ้ง
                 </label>
                 @if ($errors->has('title'))
@@ -27,7 +27,7 @@
             </div>
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label for="tags" class="block mb-2 text-sm font-bold text-green-700">
                     หมวดหมู่ปัญหา
                 </label>
                 <input type="text" name="tags" id="tags"
@@ -37,8 +37,8 @@
             </div>
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                    คำอธิบายปัญหา
+                <label for="description" class="block mb-2 text-sm font-bold text-green-700 text-gray-900 dark:text-gray-400">
+                คำอธิบายปัญหา (หากไม่เป็นการรบกวน กรุณาใส่ช่องทางการติดต่อ)
                 </label>
                 @if ($errors->has('description'))
                     <p class="text-red-500">
@@ -51,7 +51,7 @@
             </div>
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                <label for="place" class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-400">
                     สถานที่ที่พบเจอปัญหา
                 </label>
                 @if ($errors->has('place'))
@@ -64,12 +64,24 @@
                           required >{{ old('place', $post->place) }}</textarea>
             </div>
 
+    @can('delete', $post)
             <div>
-                <button class="app-button" type="submit">แก้ไขข้อมูลปัญหา</button>
+                <x-label for="following" class="font-bold text-green-700" :value="__('สถานะการดำเนินการ')" />
+                <select name="following" id="following" class="form-control">
+                    <@php($followings = ['รับเรื่องร้องเรียน','กำลังดำเนินการ','ดำเนินการเสร็จสมบูรณ์'])>
+                    @foreach($followings as $following)
+                        <option value="{{ $following }}">{{$following}}</option>
+                    @endforeach
+                </select>
+            </div>
+    @endcan
+            <div>
+                <button class="app-button mt-6" type="submit">แก้ไขข้อมูลปัญหา</button>
             </div>
 
         </form>
     </section>
+
 
     @can('delete', $post)
         <section class="mx-8 mt-16">

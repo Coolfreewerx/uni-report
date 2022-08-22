@@ -70,6 +70,8 @@ class PostController extends Controller
         $post->user_id = $request->user()->id;
         $post->place = $request->input('place');
         $post->status = $request->boolean('status');
+        $for_following = 'รับเรื่องร้องเรียน';
+        $post->following = $for_following;
         $post->save();
 
 
@@ -136,6 +138,7 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->description = $request->input('description');
         $post->place = $request->input('place');
+        $post->following = $request->input('following');
         $post->save();
 
         $tags = $request->get('tags');
@@ -192,7 +195,7 @@ class PostController extends Controller
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
-    
+
     public function your_posts()
     {
         $posts = Post::where('user_id', Auth::user()->id)->get();

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('view_count')->default(0);
             $table->bigInteger('like_count')->default(0);
             $table->boolean('status')->default(0);
+            $table->string('following');
             $table->timestamps();
         });
     }

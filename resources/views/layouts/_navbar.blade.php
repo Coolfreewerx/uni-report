@@ -1,9 +1,9 @@
 
-<nav class="bg-green-400 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+<nav class="bg-gray-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a a href="{{ url('/') }}" class="flex items-center text-white">
-        <img src="/images/1660853510.png" class="mr-5 h-9 sm:h-5" alt="logo">
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Report System</span>
+        <img src="/images/1660853510.png" class="mr-10 h-6 sm:h-20" alt="logo">
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Soccaas System</span>
     </a>
 
       <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-white-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 " aria-controls="navbar-sticky" aria-expanded="false">
@@ -21,31 +21,31 @@
                     </li>
                     <li>
                         <a href="{{ route('posts.index') }}"
-                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.index') current-page @endif" >
+                           class="block py-2 pr-4 pl-3 rounded md:p-0 a-link @if(Route::currentRouteName() === 'posts.index') current-page @endif" >
                             รายการร้องเรียน
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('charts.index') }}"
-                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'charts.index') current-page @endif" >
+                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline text-green-400 @if(Route::currentRouteName() === 'charts.index') current-page @endif" >
                             สถิติการร้องเรียน
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('posts.create') }}"
-                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.create') current-page @endif">
+                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline text-green-400 @if(Route::currentRouteName() === 'posts.create') current-page @endif">
                             แจ้งปัญหา
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('tags.index') }}"
-                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'tags.index') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline;text-green-400 @if(Route::currentRouteName() === 'tags.index') current-page @endif" >
                             หมวดหมู่ปัญหา
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('sectors.index') }}"
-                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'sectors.index') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline;text-green-400 @if(Route::currentRouteName() === 'sectors.index') current-page @endif" >
                             ระบบหน่วยงาน
                         </a>
                     </li>
@@ -64,14 +64,14 @@
                 @else
                     <li>
                         <a href="{{ route('login') }}"
-                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'login') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline;text-green-400 @if(Route::currentRouteName() === 'login') current-page @endif" >
                             Login
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ route('register') }}"
-                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'register') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline;text-green-400 @if(Route::currentRouteName() === 'register') current-page @endif" >
                             Register
                         </a>
                     </li>

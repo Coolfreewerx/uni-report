@@ -22,3 +22,22 @@
     @apply block p-6 w-full mx-10 bg-white rounded-lg border border-green-200 shadow-md hover:bg-green-100
 }
 
+a-link {
+    color:white;
+    }
+
+      /* visited link */
+    a:visited {
+        color:white ;
+    }
+      
+      /* mouse over link */
+    a:hover {
+        color: rgb(75, 192, 192);
+    }
+      
+      /* selected link */
+    a:active {
+        color: rgb(75, 192, 192);
+      } 
+

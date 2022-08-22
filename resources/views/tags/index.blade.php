@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="mx-8">
-    <br><br><br><br>
+    <br><br><br><br><br>
         <h1 class="text-3xl mx-4 mt-6">
             หมวดหมู่ปัญหาทั้งหมด
         </h1>

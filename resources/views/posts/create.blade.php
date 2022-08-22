@@ -7,7 +7,7 @@
 
 @section('content')
     <section class="mx-8">
-        <br><br><br><br>
+        <br><br><br><br><br><br>
         <h1 class="text-3xl mb-6">
             ร้องเรียนและติดตามปัญหาของนิสิต 
         </h1>
@@ -16,7 +16,7 @@
             @csrf
 
             <div class="relative z-0 mb-6 w-full group">
-                <label  class="block mb-2 text-sm font-medium dark:text-gray-300">
+                <label  class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-300">
                     เพิ่มรูปภาพ
                 </label>
 
@@ -27,7 +27,7 @@
             </div>
 
             <div>
-                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label for="title" class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-300">
                     ปัญหาที่ต้องการแจ้ง
                 </label>
 
@@ -45,7 +45,7 @@
 
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="tags" class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label for="tags" class="block mb-2 mt-2 text-sm font-bold text-green-700 dark:text-gray-300">
                     หมวดหมู่ปัญหา
                 </label>
                 <input type="text" name="tags" id="tags"
@@ -56,8 +56,8 @@
 
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                    คำอธิบายปัญหา
+                <label for="description" class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-400">
+                    คำอธิบายปัญหา (หากไม่เป็นการรบกวน กรุณาใส่ช่องทางการติดต่อ)
                 </label>
 
                 @if($errors->has('description'))
@@ -71,7 +71,7 @@
             </div>
 
             <div class="relative z-0 mb-6 w-full group">
-                <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label for="place" class="block mb-2 text-sm font-bold text-green-700 dark:text-gray-300">
                     สถานที่ที่พบเจอปัญหา
                 </label>
                 <input type="text" name="place" id="place"
@@ -82,7 +82,7 @@
 
 
             <div>
-                <x-label for="sector" :value="__('หน่วยงานที่ต้องการแจ้ง')" />
+                <x-label for="sector" class="font-bold text-green-700" :value="__('หน่วยงานที่ต้องการแจ้ง')" />
                 <select name="sector" id="sector" class="form-control">
                     @foreach($sectors as $sector)
                         
