@@ -25,9 +25,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Post hasMany comments, 1 โพสต์ มีหลาย คอมเมนต์ (มี s ด้วย)
-    // ฟังก์ชัน คืนค่า ความสัมพันธ์ hasMany
-    // attribute `comments` คืนค่า Collection ที่ผูกกับ Post นั้น
+
     public function comments() {
         return $this->hasMany(Comment::class);
     }
@@ -46,7 +44,7 @@ class Post extends Model
 
     public function scopeFilterTitle($query, $search)
     {
-        return $query->where('title', 'LIKE', "%{$search}%"); // % wildcard
+        return $query->where('title', 'LIKE', "%{$search}%"); 
     }
 
     private function numberToK($value) {

@@ -4,7 +4,7 @@
     <section class="mx-8">
         <br><br><br><br>
         <h1 class="text-3xl mb-6">
-            Edit post
+            แก้ไขข้อมูลปัญหา
         </h1>
 
         <form action="{{ route('posts.update', ['post' => $post->id]) }}" method="post" enctype="multipart/form-data">
@@ -28,7 +28,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Tags
+                    หมวดหมู่ปัญหา
                 </label>
                 <input type="text" name="tags" id="tags"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -65,7 +65,7 @@
             </div>
 
             <div>
-                <button class="app-button" type="submit">Edit</button>
+                <button class="app-button" type="submit">แก้ไขข้อมูลปัญหา</button>
             </div>
 
         </form>
@@ -84,9 +84,9 @@
 
             <div>
                 <h3 class="text-red-600 mb-4 text-2xl">
-                    Delete this Post
+                    ลบข้อมูลปัญหา
                     <p class="text-gray-800 text-xl">
-                        Once you delete a post, there is no going back. Please be certain.
+                        ถ้าลบข้อมูลปัญหานี้แล้ว ปัญหาจะหายไป !
                     </p>
                 </h3>
 
@@ -95,13 +95,13 @@
                     @method('DELETE')
                     <div class="relative z-0 mb-6 w-full group">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            Post Title to Delete
+                            ปัญหาที่คุณต้องการลบ 
                         </label>
                         <input type="text" name="title" id="title"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="" required>
                     </div>
-                    <button class="app-button red" type="submit">DELETE</button>
+                    <button class="app-button red" type="submit">ลบข้อมูลปัญหา</button>
                 </form>
             </div>
         </section>

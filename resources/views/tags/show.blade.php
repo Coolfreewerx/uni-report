@@ -5,7 +5,7 @@
     <section class="mx-8">
     <br><br><br><br>
         <h1 class="text-3xl mx-4 mt-6">
-            Tag: {{ $tag->name }}
+            หมวดหมู่ปัญหา : {{ $tag->name }}
         </h1>
         <p class="mx-8">
             {{ $tag->posts->count() }} posts

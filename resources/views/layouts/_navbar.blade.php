@@ -2,7 +2,7 @@
 <nav class="bg-green-400 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a a href="{{ url('/') }}" class="flex items-center text-white">
-        <img src="/images/soccaass_logo_black.png" class="mr-10 h-6 sm:h-9 " alt="logo">
+        <img src="/images/1660853510.png" class="mr-5 h-9 sm:h-5" alt="logo">
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Report System</span>
     </a>
 
@@ -12,63 +12,66 @@
       </button>
 
   <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-            <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+            <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 @auth
                     <li>
-                        {{ Auth::user()->email }}
+                        <a href="{{ url('/posts') }}" class="text-white hover:text-gray-200">
+                            {{ Auth::user()->email }}
+                        </a>
                     </li>
                     <li>
                         <a href="{{ route('posts.index') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.index') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.index') current-page @endif" >
                             รายการร้องเรียน
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('charts.index') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'charts.index') current-page @endif" >
+                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'charts.index') current-page @endif" >
                             สถิติการร้องเรียน
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('posts.create') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.create') current-page @endif">
+                           class="text-white block py-4 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'posts.create') current-page @endif">
                             แจ้งปัญหา
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('tags.index') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'tags.index') current-page @endif" >
-                            Tags
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'tags.index') current-page @endif" >
+                            หมวดหมู่ปัญหา
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('sectors.index') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'sectors.index') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'sectors.index') current-page @endif" >
                             ระบบหน่วยงาน
                         </a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <x-dropdown-link :href="route('logout')"
+                            <a class= "text-white""
+                                <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </a>
                         </form>
                     </li>
                 @else
                     <li>
                         <a href="{{ route('login') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'login') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'login') current-page @endif" >
                             Login
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ route('register') }}"
-                           class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'register') current-page @endif" >
+                           class="text-white block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'register') current-page @endif" >
                             Register
                         </a>
                     </li>

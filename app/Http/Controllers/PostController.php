@@ -58,7 +58,6 @@ class PostController extends Controller
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
             'sector' => ['required', 'max:1000'],
-            // 'status' => ['required', 'max:1000'],
         ]);
 
         $newImageName = time() . '.' . $request->image->extension();
@@ -75,17 +74,20 @@ class PostController extends Controller
 
 
         $tags = $request->get('tags');
-        $sectors = $request->get('sectors');
-
         $tag_ids = $this->syncTags($tags);
-
         $post->tags()->sync($tag_ids);
-        $post->sectors()->sync((int)$sectors);
 
+
+        $sectors = $request->get('sector');
+        $sector_all = Sector::get();
+        $sectors_id = 1;
+        foreach($sector_all as $sector){
+            if($sector->name == $sectors){
+                $sectors_id = $sector->id;
+            }
+        }
+        $post->sectors()->sync($sectors_id);
         return redirect()->route('posts.show', ['post' => $post->id]);
-        //                     -------------------------^
-        //                    |
-        // GET|HEAD  posts/{post} ......... posts.show › PostController@show
     }
 
     /**
@@ -126,19 +128,11 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $validated = $request->validate([
-            // 'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => ['required', 'max:255', 'min:5'],
             'description' => ['required', 'max:1000'],
             'place' => ['required', 'max:1000'],
-            // 'sector' => ['required', 'max:1000']
         ]);
 
-        // $newImageName = time() . '.' . $request->image->extension();
-        // $request->image->move(public_path('images'), $newImageName);
-
-        // $post = new Post();
-
-        // $post->image_path = $newImageName;
         $post->title = $request->input('title');
         $post->description = $request->input('description');
         $post->place = $request->input('place');
@@ -156,7 +150,6 @@ class PostController extends Controller
     {
         $tags = explode(',', $tags);
         $tags = array_map(function($v) {
-            // use Illuminate\Support\Str; ก่อน class
             return Str::ucfirst(trim($v));
         }, $tags);
 
@@ -199,8 +192,7 @@ class PostController extends Controller
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
-
-    // view your post
+    
     public function your_posts()
     {
         $posts = Post::where('user_id', Auth::user()->id)->get();

@@ -4,7 +4,7 @@
     <section class="mx-8">
     <br><br><br><br>
         <h1 class="text-3xl mx-4 mt-6">
-            All Tags
+            หมวดหมู่ปัญหาทั้งหมด
         </h1>
         <div class="my-1 px-8 py-2 flex flex-wrap justify-between space-y-6">
             @foreach($tags as $tag)

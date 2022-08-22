@@ -45,18 +45,7 @@ class UserSeeder extends Seeder
             $user->password = Hash::make('editorpass');
             $user->save();
         }
-
-
-        // $student = User::where('email', 'dogstamp123@gmail.com')->first();
-        // if  (!student) {
-        //     $student = new User();
-        //     $student->name = "Stdent";
-        //     $student->role = 'STUDENT';
-        //     $student->email = 'student@example.com';
-        //     $student->password = Hash::make('studentpass');
-        //     $student->save();
-        // }
-
+        
         User::factory(10)->create();
     }
 }

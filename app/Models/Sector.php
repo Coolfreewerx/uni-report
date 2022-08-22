@@ -13,9 +13,4 @@ class Sector extends Model
     {
         return $this->belongsToMany(Post::class);
     }
-
-    public function note()
-    {
-        return $this->hasOne(Note::class);
-    }
 }

@@ -1,8 +1,3 @@
-<?php
-    use App\models\Sector;
-    $sectors = Sector::all();
-?>
-
 @extends('layouts.main')
 
 @section('content')
