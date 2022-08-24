@@ -3,7 +3,7 @@
 
 @section('content')
     <article class="mx-8">
-        <br><br><br><br>
+        <br><br><br><br><br>
         <h1 class="text-3xl mb-1">
             {{ $post->title }}
         </h1>

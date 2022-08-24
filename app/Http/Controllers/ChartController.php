@@ -25,7 +25,21 @@ class ChartController extends Controller
             $tags_name[] = $tag->name;
             $tagCount[] = $tag->posts->count();
         }
-        return view('charts.index',['tags_name'=>$tags_name,'tagCount' => $tagCount]);
+
+        $posts = Post::get();
+        $followings = ['รับเรื่องร้องเรียน','กำลังดำเนินการ','ดำเนินการเสร็จสมบูรณ์'];
+        $followingCount = [0,0,0];
+
+        foreach ($posts as $post){
+            if($post->following == $followings[0])
+                $followingCount[0] +=1;
+            else if($post->following == $followings[1])
+                $followingCount[1] +=1;
+            else if($post->following == $followings[2])
+                $followingCount[2] +=1;
+        }
+
+        return view('charts.index',['tags_name'=>$tags_name,'tagCount' => $tagCount, 'followings'=>$followings, 'followingCount'=>$followingCount]);
     }
 
     /**

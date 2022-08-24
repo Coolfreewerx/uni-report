@@ -15,7 +15,7 @@
             <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 @auth
                     <li>
-                        <a href="{{ url('/posts') }}" class="text-white hover:text-gray-200">
+                        <a href="{{ url('/your_posts') }}" class="text-white hover:text-gray-200">
                             {{ Auth::user()->email }}
                         </a>
                     </li>

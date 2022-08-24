@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="mx-8">
-        <br><br><br><br>
+        <br><br><br><br><br>
         <h1 class="text-3xl mb-6">
             แก้ไขข้อมูลปัญหา
         </h1>
@@ -28,7 +28,7 @@
 
             <div class="relative z-0 mb-6 w-full group">
                 <label for="tags" class="block mb-2 text-sm font-bold text-green-700">
-                    หมวดหมู่ปัญหา
+                    หมวดหมู่ปัญหา (คั่นด้วย comma)
                 </label>
                 <input type="text" name="tags" id="tags"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -75,6 +75,15 @@
                 </select>
             </div>
     @endcan
+
+    @can('edit', $post)
+            <div>
+                <x-label for="following" class="font-bold text-green-700" :value="__('สถานะการดำเนินการ')" />
+                <select name="following" id="following" class="form-control">
+                        <option value="{{ $post->following }}">{{$post->following}}</option>
+                </select>
+            </div>
+    @endcan
             <div>
                 <button class="app-button mt-6" type="submit">แก้ไขข้อมูลปัญหา</button>
             </div>
@@ -118,5 +127,4 @@
             </div>
         </section>
     @endcan
-
 @endsection

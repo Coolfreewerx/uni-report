@@ -53,8 +53,8 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->isAdmin() or $user->isEditor()  or 
-            ($user->isUser() and $user->id === $post->user_id);
+        return $user->isAdmin() or $user->isEditor()  or $user->isEmployee() or
+            (($user->isUser() or $user->isStudent() or $user->isTeacher())and $user->id === $post->user_id);
     }
 
     /**
@@ -64,9 +64,13 @@ class PostPolicy
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
+    public function edit(User $user, Post $post)
+    {
+        return ($user->isUser() or $user->isStudent() or $user->isTeacher())and $user->id === $post->user_id ;
+    }
     public function delete(User $user, Post $post)
     {
-        return $user->isAdmin();
+        return $user->isAdmin() or $user->isEmployee();
     }
 
     /**
